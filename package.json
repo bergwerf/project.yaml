@@ -1,0 +1,28 @@
+{
+  "name": "project.yaml",
+  "version": "0.1.0",
+  "description": "One project.yaml to rule them all!",
+  "bin": {
+    "projectyaml": "bin/projectyaml.js"
+  },
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hermanbergwerf/project-yaml.git"
+  },
+  "keywords": [
+    "project.yaml"
+  ],
+  "author": "Herman Bergwerf",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hermanbergwerf/project-yaml/issues"
+  },
+  "homepage": "https://github.com/hermanbergwerf/project-yaml#readme",
+  "dependencies": {
+    "command-line-args": "^1.0.2",
+    "yamljs": "^0.2.4"
+  }
+}
