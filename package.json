@@ -6,7 +6,7 @@
     "projectyaml": "bin/projectyaml.js"
   },
   "scripts": {
-    "test": "npm test"
+    "test": "./test/test.sh"
   },
   "repository": {
     "type": "git",

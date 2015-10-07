@@ -1,0 +1,36 @@
+{
+    "name": "My Project",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "dependencies": {
+        "express": "^4.13.3"
+    },
+    "engines": {
+        "node": "4.0.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/username/repository.git"
+    },
+    "keywords": [
+        "node",
+        "heroku",
+        "express"
+    ],
+    "author": "John Doe",
+    "contributors": [
+        "Joe Bloggs",
+        "Joe Bloggs <joe@bloggs.com>",
+        "Joe Bloggs <joe@bloggs.com> (http://joebloggs.com)"
+    ],
+    "license": "AGPL-3.0",
+    "version": "1.0.0",
+    "description": "Awesome project!",
+    "homepage": "http://example.com",
+    "bugs": {
+        "url": "https://github.com/username/repository/issues",
+        "email": "bugs@example.com"
+    }
+}

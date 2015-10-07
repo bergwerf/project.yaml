@@ -45,7 +45,7 @@ function copyValues(src, dest, which)
     {
         if (which[key] !== false && src[key])
         {
-            if (!(which[key] instanceof Object))
+            if (which[key] instanceof Object)
             {
                 dest[key] = dest[key] || {};
                 copyValues(src[key], dest[key], which[key]);
@@ -68,10 +68,11 @@ YAML.load('project.yaml', function(project)
     /*
     package.json
     */
-    fs.readFile('package.json', function (err, data)
+    fs.readFile('package.json', function (err, buffer)
     {
         if (!err)
         {
+            var data = JSON.parse(buffer);
             copyValues(project, data, {
                 name:         'name',
                 version:      'version',
@@ -99,10 +100,11 @@ YAML.load('project.yaml', function(project)
     /*
     bower.json
     */
-    fs.readFile('bower.json', function (err, data)
+    fs.readFile('bower.json', function (err, buffer)
     {
         if (!err)
         {
+            var data = JSON.parse(buffer);
             var bowerProject = project;
             if (bowerProject.contributors &&
                 bowerProject.contributors.length > 0)
@@ -133,9 +135,9 @@ YAML.load('project.yaml', function(project)
     /*
     pubspec.yaml
     */
-    fs.readFile('pubspec.yaml', function (err, data)
+    YAML.load('pubspec.yaml', function(data)
     {
-        if (!err)
+        if (data instanceof Object)
         {
             var pubProject = project;
             var singleAuthor = true;

@@ -9,7 +9,7 @@ other configuration files such as `package.json`, `bower.json` and
 Install
 -------
 ```
-npm install project.yaml
+npm install --global project.yaml
 ```
 
 Use

@@ -1,0 +1,19 @@
+name: 'My Project'
+version: 1.0.0
+homepage: 'http://example.com'
+documentation: 'http://docs.newtify.com'
+dependencies:
+efts: ^2.0.4
+transmogrify: ^0.4.0
+dev_dependencies:
+test: '>=0.6.0 <0.12.0'
+dependency_overrides:
+transmogrify: {path: ../transmogrify_patch/}
+authors:
+- 'John Doe'
+- 'John Doe'
+- 'Joe Bloggs'
+- 'Joe Bloggs <joe@bloggs.com>'
+- 'Joe Bloggs <joe@bloggs.com> (http://joebloggs.com)'
+description: 'Awesome project!'
+
