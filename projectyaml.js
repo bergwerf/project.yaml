@@ -12,7 +12,7 @@ var cli = commandLineArgs([
 ]);
 
 var options = cli.parse();
-options.indent = options.indent || 2;  // default to two spaces
+options.indent = (options.indent !== undefined) ? options.indent : 2;
 var indent = options.indent == 0 ? '\t' : Array(options.indent + 1).join(' ');
 
 /*
