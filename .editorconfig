@@ -1,0 +1,8 @@
+root = true
+
+[*]
+end_of_line = lf             # All files use Unix-style newlines.
+insert_final_newline = true  # All files have a final newline.
+charset = utf-8              # All files use UTF-8 encoding.
+indent_style = space         # All files use space indentation by default.
+indent_size = 4              # With 4 spaces as indentation width
