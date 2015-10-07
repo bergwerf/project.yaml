@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hermanbergwerf/project-yaml.git"
+    "url": "git+https://github.com/hermanbergwerf/project.yaml.git"
   },
   "keywords": [
     "project.yaml"
@@ -18,9 +18,9 @@
   "author": "Herman Bergwerf",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hermanbergwerf/project-yaml/issues"
+    "url": "https://github.com/hermanbergwerf/project.yaml/issues"
   },
-  "homepage": "https://github.com/hermanbergwerf/project-yaml#readme",
+  "homepage": "https://github.com/hermanbergwerf/project.yaml#readme",
   "dependencies": {
     "command-line-args": "^1.0.2",
     "yamljs": "^0.2.4"
