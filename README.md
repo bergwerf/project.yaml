@@ -48,6 +48,6 @@ Notes
 
 Supported third-party files
 ---------------------------
-- **package.json**
-- **pubspec.yaml**
-- **bower.json**
+- [package.json](https://docs.npmjs.com/files/package.json)
+- [bower.json](https://github.com/bower/spec/blob/master/json.md)
+- [pubspec.yaml](https://www.dartlang.org/tools/pub/pubspec.html)
