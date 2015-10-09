@@ -10,8 +10,7 @@ cp input/project.yaml project.yaml
 ../projectyaml.js --indent 4
 
 if [ -z "$(diff package.json expected/package.json)" ] &&
-   [ -z "$(diff bower.json expected/bower.json)" ] &&
-   [ -z "$(diff pubspec.yaml expected/pubspec.yaml)" ]; then
+   [ -z "$(diff bower.json expected/bower.json)" ]; then
     rm package.json bower.json pubspec.yaml project.yaml
 else
     rm package.json bower.json pubspec.yaml project.yaml

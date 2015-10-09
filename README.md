@@ -1,10 +1,14 @@
 One project.yaml to rule them all!
 ==================================
+**NOTE: this tool is used for the MolView project and is not stable.**
+
 This command-line tool provides the ability to define project information such
 as the project name, version, description and license only once in a
 project.yaml. Running the `projectyaml` command will sync these values with
-other configuration files such as `package.json`, `bower.json` and
-`pubspec.yaml`. This is a fail-silent tool.
+other configuration files such as `package.json` and `bower.json`. It will also
+compare the global configuration values with those in other YAML configuration
+files like `pubspec.yaml`. The values are not directly copied to YAML files
+because YAML files are often manually formatted.
 
 Install
 -------

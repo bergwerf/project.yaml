@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 var fs               = require('fs');
+var clone            = require('clone');
 var YAML             = require('yamljs');
 var commandLineArgs  = require("command-line-args");
 
@@ -43,7 +44,7 @@ function copyValues(src, dest, which)
 {
     for (var key in which)
     {
-        if (which[key] !== false && src[key])
+        if (which[key] !== false && src[key] !== undefined)
         {
             if (which[key] instanceof Object)
             {
@@ -56,6 +57,31 @@ function copyValues(src, dest, which)
             }
         }
     }
+}
+
+function matchValues(src, dest, which)
+{
+    for (var key in which)
+    {
+        if (which[key] !== false && src[key] !== undefined)
+        {
+            if (which[key] instanceof Object)
+            {
+                dest[key] = dest[key] || {};
+                var ret = matchValues(src[key], dest[key], which[key]);
+                if (!ret) return false;
+            }
+            else
+            {
+                if (dest[which[key]] === undefined ||
+                    JSON.stringify(dest[which[key]]) != JSON.stringify(src[key]))
+                {
+                    return false;
+                }
+            }
+        }
+    }
+    return true;
 }
 
 YAML.load('project.yaml', function(project)
@@ -105,12 +131,13 @@ YAML.load('project.yaml', function(project)
         if (!err)
         {
             var data = JSON.parse(buffer);
-            var bowerProject = project;
-            if (bowerProject.contributors &&
+            var bowerProject = clone(project);
+            if (bowerProject.contributors !== undefined &&
                 bowerProject.contributors.length > 0)
             {
                 bowerProject.contributors.unshift(bowerProject.author);
             }
+
             copyValues(bowerProject, data, {
                 name:         'name',
                 version:      false,
@@ -134,21 +161,24 @@ YAML.load('project.yaml', function(project)
 
     /*
     pubspec.yaml
+    Because YAML files are often formated by hand, pubspec.yaml is not
+    overwritten by projectyaml. Instead it is matched againts the project.yaml
+    and an error is raised if there are any inaccuracies.
     */
     YAML.load('pubspec.yaml', function(data)
     {
         if (data instanceof Object)
         {
-            var pubProject = project;
+            var pubProject = clone(project);
             var singleAuthor = true;
-            if (pubProject.contributors &&
+            if (pubProject.contributors !== undefined &&
                 pubProject.contributors.length > 0)
             {
                 singleAuthor = false;
                 pubProject.contributors.unshift(pubProject.author);
             }
 
-            copyValues(pubProject, data, {
+            if (!matchValues(pubProject, data, {
                 name:         'name',
                 version:      'version',
                 copyright:    false,
@@ -160,9 +190,11 @@ YAML.load('project.yaml', function(project)
                 homepage:     'homepage',
                 repository:   false,
                 bugs:         false
-            });
-            fs.writeFile('pubspec.yaml', new Buffer(YAML.stringify(data, null,
-                indent) + '\n', 'utf8'));
+            }))
+            {
+                console.log("pubspec.yaml does not match project.yaml");
+                process.exit(1);
+            }
         }
     });
 });

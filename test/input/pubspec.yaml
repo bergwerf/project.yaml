@@ -1,12 +1,14 @@
-name: newtify
-version: 1.2.3
-homepage: http://newtify.dartlang.org
-documentation: http://docs.newtify.com
+name:             My Project
+version:          1.0.0
+homepage:         http://example.com
+description:      Awesome project!
+authors:
+    - John Doe
+    - Joe Bloggs
+    - Joe Bloggs <joe@bloggs.com>
+    - Joe Bloggs <joe@bloggs.com> (http://joebloggs.com)
 dependencies:
-  efts: ^2.0.4
-  transmogrify: ^0.4.0
+    efts:         ^2.0.4
+    transmogrify: ^0.4.0
 dev_dependencies:
-  test: '>=0.6.0 <0.12.0'
-dependency_overrides:
-  transmogrify:
-    path: ../transmogrify_patch/
+    test:         '>=0.6.0 <0.12.0'

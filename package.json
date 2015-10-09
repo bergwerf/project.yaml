@@ -1,6 +1,6 @@
 {
   "name": "project.yaml",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "One project.yaml to rule them all!",
   "bin": {
     "projectyaml": "projectyaml.js"
@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/hermanbergwerf/project.yaml#readme",
   "dependencies": {
+    "clone": "^1.0.2",
     "command-line-args": "^1.0.2",
     "yamljs": "^0.2.4"
   }
