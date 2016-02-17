@@ -1,6 +1,6 @@
 One project.yaml to rule them all!
 ==================================
-**NOTE: this tool is used for the MolView project and is not stable.**
+**NOTE: this tool is not maintained anymore, MolView now uses Dart. Feel free to fork or create a PR.**
 
 This command-line tool provides the ability to define project information such
 as the project name, version, description and license only once in a
